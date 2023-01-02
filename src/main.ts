@@ -5,5 +5,6 @@ import App2 from './App2.vue';
 import App3 from './App3.vue';
 import App4 from './App4.vue';
 import App5 from './App5.vue';
+import App6 from './App6.vue';
 
-createApp(App5).mount('#app');
+createApp(App6).mount('#app');
