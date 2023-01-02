@@ -1,14 +1,22 @@
 <template>
 
-  <div v-move class="box">
+  <!-- <div v-move class="box">
     <div class="header"></div>
     <div>内容</div>
-  </div>
+  </div> -->
+
+  <img id="img" src="./assets/daizong.jpg" width="300" height="300">
 
 </template>
 
 <script setup lang='ts'>
 import { ref, Directive, DirectiveBinding } from 'vue'
+
+import useBase64 from './hooks'
+
+useBase64({ el: '#img' }).then(res => {
+  console.log(res.baseUrl)
+})
 
 const vMove: Directive<any, void> = (el: HTMLElement, binding: DirectiveBinding) => {
   let moveElement: HTMLDivElement = el.firstElementChild as HTMLDivElement
