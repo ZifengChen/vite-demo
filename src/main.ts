@@ -8,6 +8,7 @@ import App5 from './App5.vue';
 import App6 from './App6.vue';
 import App7 from './App7.vue';
 import Loading from './components/Loading';
+import { MyUse } from './myUse';
 
 export const app = createApp(App7);
 
@@ -17,7 +18,7 @@ app.config.globalProperties.$filters = {
   },
 };
 
-app.use(Loading);
+MyUse(Loading);
 
 type Filter = {
   format<T>(str: T): string;
