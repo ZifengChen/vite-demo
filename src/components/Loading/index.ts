@@ -6,7 +6,7 @@ export default {
     const vnode: VNode = createVNode(Loading);
     render(vnode, document.body);
     // console.log(vnode.component?.exposed);
-    app.config.globalProperties.$loading = {
+    app.config.globalProperties.$myloading = {
       show: vnode.component?.exposed?.show,
       hide: vnode.component?.exposed?.hide,
     };
