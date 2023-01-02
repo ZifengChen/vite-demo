@@ -6,5 +6,37 @@ import App3 from './App3.vue';
 import App4 from './App4.vue';
 import App5 from './App5.vue';
 import App6 from './App6.vue';
+import App7 from './App7.vue';
+import Loading from './components/Loading';
 
-createApp(App6).mount('#app');
+export const app = createApp(App7);
+
+app.config.globalProperties.$filters = {
+  format<T>(str: T) {
+    return `ken-${str}`;
+  },
+};
+
+app.use(Loading);
+
+type Filter = {
+  format<T>(str: T): string;
+};
+
+type Lod = {
+  show: () => void;
+  hide: () => void;
+};
+declare module 'vue' {
+  export interface ComponentCustomProperties {
+    $filters: Filter;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface ComponentCustomProperties {
+    $loading: Lod;
+  }
+}
+
+app.mount('#app');
